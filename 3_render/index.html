@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electron</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+
+ 
+
+</style>
+  </head>
+  <body >
+    <div id="bg"><img width="100%" height="100%" src="images/n3.png" /></div>
+    <input type="text" id="key">
+    <input type="text" id="domian">
+     <input type="submit" id="seach">
+     <p id='data'>data<p>
+       <script>
+          const ipc = require('electron').ipcRenderer
+          var key = document.getElementById('key')  
+          var domian = document.getElementById('domian')  
+          var seach = document.getElementById('seach')  
+          var data = document.getElementById('data')
+          seach.addEventListener('click',function(){
+            ipc.send('data', {key:key.value,domian:domian.value})
+          })
+       </script>
+  </body>
+</html>

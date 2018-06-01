@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Electron</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="alignCenter">
+			<img style="width:70%" src="images/elec.png">
+		</div>
+		<div class="alignCenter" style="font-size:30px;color:#007f7f">
+			App Seo Web
+		</div>
+		<section id="content">
+			<form>
+				<h1>Login</h1>
+				<div>
+					<input type="text" placeholder="Username" id="username" />
+				</div>
+				<div>
+					<input type="password" placeholder="Password" id="password" />
+				</div>
+				<div>
+					<input type="submit" value="Login" id="button" />
+					<a href="#">Register</a>
+				</div>
+			</form>
+			<!-- form -->
+			<div class="button">
+
+			</div>
+			<!-- button -->
+		</section>
+		<!-- content -->
+	</div>
+	<!-- container -->
+	<script>
+				var but = document.getElementById('button')
+				but.addEventListener('click',function ()
+				{
+						var  username = document.getElementById('username').value
+						var  password = document.getElementById('password').value
+						const ipc = require('electron').ipcRenderer
+						ipc.send('asynchronous-message',{username : username , password : password})
+				})
+          </script>
+</body>
+</html>
